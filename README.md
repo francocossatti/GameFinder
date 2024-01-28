@@ -1,6 +1,6 @@
 # Game Finder
 
-A website to search for games information
+My portfolio with some projects maded by me.
 
 ## How test
-Enter in https://game-finder-ten.vercel.app
+Enter in https://portfolio-jhjxdlsfz-francos-projects-49b18646.vercel.app
