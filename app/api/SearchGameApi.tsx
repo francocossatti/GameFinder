@@ -23,8 +23,8 @@ export default async function searchSpecificGame(query: string) {
   const options1 = {
     method: 'POST',
     headers: {
-      'Client-ID': 'gs1lb9y1c0zgzvul8u6ppc8otr2k21',
-      'Authorization': 'Bearer pcoiyysd1mhel7wp779bvzw04xvxog',
+      'Client-ID': `${process.env.API_CLIENT_ID}`,
+      'Authorization': `Bearer ${process.env.API_BEARER_TOKEN}`,
       'Content-Type': 'text/plain',
     },
     body: `fields name, cover.url, summary, screenshots.url, genres.name; where name ~ "${query}"*;

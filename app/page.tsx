@@ -3,6 +3,14 @@ import RecommendSection from "@/components/RecommendSection"
 import getNewGames from "./api/NewGamesApi";
 import getPopularGames from "./api/MostPopularApi";
 import Footer from "@/components/Footer";
+import { Metadata } from 'next'
+
+require('dotenv').config()
+ 
+export const metadata: Metadata = {
+  title: 'Game Finder',
+  description: '...',
+}
 
 async function getRecommendedData(){
   const newGames = await getNewGames()
