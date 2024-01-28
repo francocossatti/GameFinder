@@ -110,7 +110,7 @@ const settings = {
   const index = findClosestRepoIndexByName(originalGame, input);
 
   return (
-    <div className='w-full mt-60 mb-20 h-80 md:mt-52 md:h-96'>
+    <div className='w-full mt-72 mb-20 h-80 md:mt-52 md:h-96'>
       <div className='relative w-full text-center text-white text-3xl'>
         <h1>Similar Games</h1>
       </div>

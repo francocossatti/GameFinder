@@ -152,11 +152,11 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
         <div className="md:ml-80 md:text-left absolute text-white">
           <h1 className="mt-2 text-md md:text-2xl">{textoModificado}</h1>
         </div>
-        <div className="absolute mt-44 md:my-36 md:ml-80 md:text-left w-full md:w-auto md:max-w-md flex justify-center">
-          {gameInfo[index] && gameInfo[index].genres && gameInfo[index].genres.map((genre, index) => (
-            <span key={index} className="bg-white mr-2 inline-block px-2 py-1 rounded-full">{genre.name}</span>
-          ))}
-        </div>
+        <div className="absolute mt-36 md:mt-32 md:my-36 md:ml-80 md:text-left w-full md:w-auto flex flex-wrap md:flex-nowrap justify-center items-center">
+  {gameInfo[index] && gameInfo[index].genres && gameInfo[index].genres.map((genre, index) => (
+    <span key={index} className="bg-white inline-flex justify-center items-center p-2 mt-2 mx-1 rounded-full">{genre.name}</span>
+  ))}
+</div>
       </div>
     </div>
   );  
