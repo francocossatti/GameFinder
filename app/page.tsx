@@ -1,9 +1,23 @@
+import HomeSection from "@/components/HomeSection"
 import RecommendSection from "@/components/RecommendSection"
+import getNewGames from "./api/NewGamesApi";
+import getPopularGames from "./api/MostPopularApi";
+import Footer from "@/components/Footer";
 
-export default function Home() {
+async function getRecommendedData(){
+  const newGames = await getNewGames()
+  const popularGames = await getPopularGames()
+  return { newGames, popularGames };
+}
+
+export default async function Home() {
+  const { newGames, popularGames } = await getRecommendedData();
+
   return (
-    <main>
-      <RecommendSection />
+    <main className="bg-gradient-to-tr from-black to-blue-900">
+        <HomeSection />
+        <RecommendSection popularGames={popularGames} newGames={newGames} />
+        <Footer/>
     </main>
   )
 }

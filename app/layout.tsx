@@ -1,7 +1,5 @@
 "use client"
-import Footer from '@/components/Footer'
 import '../styles/globals.css'
-import { ThemeProvider } from "next-themes"
 
 export default function RootLayout({
   children,
@@ -11,11 +9,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <ThemeProvider enableSystem={true} attribute="class">
-          {children}
-          <Footer />
-        </ThemeProvider>
-        </body>
+      {children}
+      </body>
     </html>
-  )
+  );
 }

@@ -1,51 +1,54 @@
 "use client"
-import React, { useEffect } from "react"
-import axios from 'axios';
+import Link from 'next/link';
+import React from 'react';
 
-const apiUrl = 'https://api.igdb.com/v4/games';
-
-// Configuración de Axios con el encabezado de autorización
-const axiosConfig = {
-  headers: {
-    'Client-ID': 'gs1lb9y1c0zgzvul8u6ppc8otr2k21', // Reemplaza con tu Client ID
-    'Authorization': 'Bearer  2lds3kvld6zerw0xtszfaga5791im6', // Reemplaza con tu Access Token
-  },
+type Repo = {
+  id: number;
+  name: string;
+  cover: {
+    url: string;
+  };
 };
 
-// Componente o función principal de Next.js
-function MiComponente() {
-  // Función para realizar la llamada a la API
-  const llamarAPI = async () => {
-    try {
-      // Parámetros de la solicitud
-      const params = {
-        fields: 'name,popularity',
-        sort: 'popularity:desc',
-        limit: 10,
-      };
+export default async function RecommendSection({ newGames, popularGames }: { newGames: Repo[], popularGames: Repo[] }) {
 
-      // Realizar la llamada a la API utilizando Axios
-      const respuesta = await axios.get(apiUrl, { params, ...axiosConfig });
-
-      // Imprimir la respuesta en la consola
-      console.log(respuesta.data);
-    } catch (error) {
-      // Manejar errores, por ejemplo, imprimir en la consola
-      console.error('Error al llamar a la API:', error);
-    }
+  // Función para obtener la URL con el tamaño deseado
+  const getResizedImageUrl = (url: string, size: string) => {
+    const hash = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.'));
+    return `https://images.igdb.com/igdb/image/upload/t_${size}/${hash}.png`;
   };
 
-  // Llamar a la API cuando el componente se monta
-  useEffect(() => {
-    llamarAPI();
-  }, []); // Asegúrate de importar useEffect si no lo has hecho
-
-  // Renderizar tu componente
+  // Puedes devolver JSX que muestre información en tu componente
   return (
-    <div>
-      {/* Contenido de tu componente */}
-    </div>
-  );
+      <div className="mx-full text-center">
+        <h1 className="text-3xl font-semibold mb-6 text-white">Popular</h1>
+        <ul className='flex justify-center'>
+          {popularGames.map((game, index) => (
+            <div key={game.id} className={`flex-shrink-0 mx-1 md:mx-2 mb-4 ${index === 0 ? 'ml-0' : ''} ${index < 3 ? '' : 'hidden md:block'}`}>
+              <Link href={`/${game.name.replace(/ /g, '-').replace(/:/g, '').toLowerCase()}`}>
+              <img
+                className="drop-shadow-xl shadow-xl rounded-md w-28 md:w-60 h-auto mx-auto mb-2 delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                src={getResizedImageUrl(game.cover.url, 'cover_big')}
+                alt={game.name}
+              />
+              </Link>
+            </div>
+          ))}
+        </ul>
+        <h1 className="text-3xl font-semibold mb-6 text-white">Tendence</h1>
+        <ul className='flex justify-center'>
+          {newGames.map((game, index) => (
+            <div key={game.id} className={`flex-shrink-0 mx-1 md:mx-2 mb-4 ${index === 0 ? 'ml-0' : ''} ${index < 3 ? '' : 'hidden md:block'}`}>
+              <Link href={`/${game.name.replace(/ /g, '-').replace(/:/g, '').toLowerCase()}`}>
+              <img
+                className="drop-shadow-xl shadow-xl rounded-md w-28 md:w-60 h-auto mx-auto mb-2 delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                src={getResizedImageUrl(game.cover.url, 'cover_big')}
+                alt={game.name}
+              />
+              </Link>
+            </div>
+          ))}
+        </ul>
+      </div>
+  );  
 }
-
-export default MiComponente;
