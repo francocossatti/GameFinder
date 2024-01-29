@@ -146,11 +146,11 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
           src={gameInfo[index]?.cover?.url ? getResizedImageUrl(gameInfo[index].cover.url, 'cover_big') : 'URL_POR_DEFECTO'}
         />
         </div>
-        <h1 className="relative text-white md:text-left md:ml-80 2xl:ml-[40vh] 2xl:text-[6rem] mt-32 md:mt-0 text-4xl md:text-6xl">{gameInfo[index]?.name}</h1>
-        <div className="md:ml-80 2xl:ml-[40vh] md:text-left absolute text-white">
+        <h1 className="relative text-white md:text-left md:ml-80 2xl:ml-[44vh] 2xl:text-[6rem] mt-32 md:mt-0 text-4xl md:text-6xl">{gameInfo[index]?.name}</h1>
+        <div className="md:ml-80 2xl:ml-[44vh] md:text-left absolute text-white">
           <h1 className="mt-2 text-md 2xl:text-[2.5rem]/[3.3rem] md:text-2xl">{textoModificado}</h1>
         </div>
-        <div className="absolute mt-36 2xl:ml-[40vh] 2xl:mt-52 2xl:text-3xl md:mt-32 md:my-36 md:ml-80 md:text-left w-full md:w-auto flex flex-wrap md:flex-nowrap justify-center items-center">
+        <div className="absolute mt-36 2xl:ml-[44vh] 2xl:mt-52 2xl:text-3xl md:mt-32 md:my-36 md:ml-80 md:text-left w-full md:w-auto flex flex-wrap md:flex-nowrap justify-center items-center">
   {gameInfo[index] && gameInfo[index].genres && gameInfo[index].genres.map((genre, index) => (
     <span key={index} className="bg-white inline-flex justify-center items-center 2xl:p-3 p-2 mt-2 mx-1 rounded-full">{genre.name}</span>
   ))}
