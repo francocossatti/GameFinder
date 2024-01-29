@@ -14,6 +14,9 @@ export default async function getNewGames() {
   // Primer llamado API
   const options1 = {
     method: 'POST',
+    next: {
+      revalidate: 604800
+    }, 
     headers: {
       'Client-ID': `${process.env.API_CLIENT_ID}`,
       'Authorization': `Bearer ${process.env.API_BEARER_TOKEN}`,

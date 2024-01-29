@@ -7,18 +7,17 @@ const Footer = () => {
   const iconColorClass = "text-white";
 
   return (
-    <footer className="w-full mx-auto mt-8 md:mt-12 px-4 sm:px-6 trasparent">
+    <footer className="w-full mx-auto mt-8 2xl:mt-24 md:mt-12 px-4 sm:px-6 trasparent">
       <hr className="w-full border-t border-neutral-200 my-0 mx-auto"></hr>
       <div className="mx-auto p-4 flex flex-col text-center md:flex-row md:justify-between">
-        <div className={`flex flex-row items-center justify-center space-x-1 ${textColorClass}`}>
+        <div className={`flex flex-row items-center 2xl:text-3xl justify-center space-x-1 ${textColorClass}`}>
           <span>© 2024 Franco Cossatti</span>
           <a href="/" className="hover:underline"></a>
         </div>
         <div className="flex flex-row items-center justify-center space-x-2 mb-1">
           <a href="https://github.com/francocossatti" rel="noreferrer" target="_blank">
             <AiOutlineGithub
-              className={`hover:-translate-y-1 transition-transform cursor-pointer ${iconColorClass}`}
-              size={30}
+              className={`hover:-translate-y-1 size-8 2xl:size-14 transition-transform cursor-pointer ${iconColorClass}`}
             />
           </a>
           <a
@@ -27,8 +26,7 @@ const Footer = () => {
             target="_blank"
           >
             <AiOutlineLinkedin
-              className={`hover:-translate-y-1 transition-transform cursor-pointer ${iconColorClass}`}
-              size={30}
+              className={`hover:-translate-y-1 size-8 2xl:size-14 transition-transform cursor-pointer ${iconColorClass}`} 
             />
           </a>
         </div>

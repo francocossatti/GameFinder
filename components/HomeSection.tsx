@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const Option = ({ innerProps, label, data }: any) => (
   <div {...innerProps} className="flex items-center cursor-pointer">
-    <img src={data.value.cover?.url} alt={label} className="w-8 h-8 mr-2 mt-1 ml-1 rounded" />
+    <img src={data.value.cover?.url} alt={label} className="size-8 2xl:size-12 mr-2 mt-1 ml-1 rounded" />
     <span>{label}</span>
   </div>
 );
@@ -35,6 +35,9 @@ const searchBarStyles = {
       // Apply new width for screens between md (768px) and lg (1024px)
       width: '30rem',
     },
+    '@media (min-width: 1900px)': {
+      width: "70rem",
+    }
   }),
   option: (provided: any, state: any) => ({
     ...provided,
@@ -76,7 +79,7 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className={`flex justify-center pt-8 md:pt-24 md:pb-28 ${menuIsOpen ? 'mb-52 md:mb-24' : ''}`}>
+<div className={`flex justify-center mb-2 pt-8 md:pt-24 md:pb-28 ${menuIsOpen ? 'mb-52 md:mb-24 2xl:mb-48 transition-all duration-300 ease-in-out' : 'transition-all duration-300 ease-in-out'}`}>
       <AsyncSelect
         cacheOptions
         defaultOptions

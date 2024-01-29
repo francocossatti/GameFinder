@@ -14,6 +14,9 @@ export default async function getPopularGames() {
   // Primer llamado API
   const options1 = {
     method: 'POST',
+    next: {
+      revalidate: 2629800
+    }, 
     headers: {
       'Client-ID': `${process.env.API_CLIENT_ID}`,
       'Authorization': `Bearer ${process.env.API_BEARER_TOKEN}`,

@@ -110,8 +110,8 @@ const settings = {
   const index = findClosestRepoIndexByName(originalGame, input);
 
   return (
-    <div className='w-full mt-72 mb-20 h-80 md:mt-52 md:h-96'>
-      <div className='relative w-full text-center text-white text-3xl'>
+    <div className='w-full mt-72 2xl:mt-[21rem] 2xl:mb-56 mb-20 h-80 md:mt-52 md:h-96'>
+      <div className='relative w-full text-center text-white 2xl:text-5xl text-3xl'>
         <h1>Similar Games</h1>
       </div>
       <div className='absolute mt-4 secondcarousel-container text-center w-full'>
@@ -124,11 +124,11 @@ const settings = {
                     botonPresionado(game.id, game.name, event);
                   }
                 }}
-                className="drop-shadow-xl shadow-xl rounded-md hover:mt-5 w-60 h-auto md:mx-1 mb-2 delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 cursor-pointer duration-300"
+                className="drop-shadow-xl shadow-xl rounded-md hover:mt-5 w-60 2xl:w-80 h-auto md:mx-1 mb-2 delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 cursor-pointer duration-300"
                 src={getResizedImageUrl(game.cover.url, 'cover_big')}
                 alt={game.name}
               />
-              <p className="text-white md:text-lg">{game.name}</p>
+              <p className="text-white 2xl:text-3xl md:text-lg">{game.name}</p>
             </div>
           ))}
         </Slider>

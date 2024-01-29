@@ -22,7 +22,7 @@ export default async function Home() {
   const { newGames, popularGames } = await getRecommendedData();
 
   return (
-    <main className="bg-gradient-to-tr from-black to-blue-900">
+    <main className="bg-gradient-to-tr from-black to-blue-900 min-h-screen">
         <HomeSection />
         <RecommendSection popularGames={popularGames} newGames={newGames} />
         <Footer/>
