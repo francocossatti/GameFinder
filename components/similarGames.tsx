@@ -72,8 +72,6 @@ function levenshteinDistance(a: string, b: string): number {
 export default function SimilarGames({ originalGame, input }: { originalGame: Repo[], input: string }) {
   const [isDragging, setIsDragging] = useState(false);
 
- // Se ejecuta cuando cambia id u options1
-
   const getResizedImageUrl = (url: string, size: string) => {
     const hash = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.'));
     return `https://images.igdb.com/igdb/image/upload/t_${size}/${hash}.png`;
@@ -97,7 +95,7 @@ const settings = {
   afterChange: () => setIsDragging(false),
   responsive: [
     {
-      breakpoint: 768, // Cambia este valor si lo deseas
+      breakpoint: 768, 
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1

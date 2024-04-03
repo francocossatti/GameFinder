@@ -11,18 +11,17 @@ type GameInformation = {
 export default async function getNewGames() {
   const apiUrl = 'https://api.igdb.com/v4/games';
 
-  // Primer llamado API
   const options1 = {
     method: 'POST',
     next: {
-      revalidate: 604800
+      revalidate: 3600
     }, 
     headers: {
       'Client-ID': `${process.env.API_CLIENT_ID}`,
       'Authorization': `Bearer ${process.env.API_BEARER_TOKEN}`,
       'Content-Type': 'text/plain',
     },
-    body: 'fields name,cover.url; sort first_release_date desc; where total_rating_count > 10; limit 5;',
+    body: 'fields name,cover.url; sort first_release_date desc; where total_rating_count > 10; limit 7;',
   };
 
   const res = await fetch(apiUrl, options1);

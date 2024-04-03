@@ -19,7 +19,6 @@ type GameInformation = {
 export default async function searchSpecificGame(query: string) {
   const apiUrl = 'https://api.igdb.com/v4/games';
 
-  // Primer llamado API
   const options1 = {
     method: 'POST',
     headers: {

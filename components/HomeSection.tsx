@@ -3,6 +3,8 @@ import React from 'react';
 import AsyncSelect from 'react-select/async';
 import SearchApi from '@/app/api/SearchApi';
 import { useRouter } from 'next/navigation';
+import { HiArrowDown } from "react-icons/hi"
+import { Link } from "react-scroll/modules"
 
 const Option = ({ innerProps, label, data }: any) => (
   <div {...innerProps} className="flex items-center cursor-pointer">
@@ -79,19 +81,35 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-<div className={`flex justify-center mb-2 pt-8 md:pt-24 md:pb-28 ${menuIsOpen ? 'mb-52 md:mb-24 2xl:mb-48 transition-all duration-300 ease-in-out' : 'transition-all duration-300 ease-in-out'}`}>
-      <AsyncSelect
-        cacheOptions
-        defaultOptions
-        loadOptions={loadOptions}
-        onChange={handleChange}
-        components={{ Option }}
-        styles={searchBarStyles}
-        menuIsOpen={menuIsOpen}
-        onMenuOpen={() => setMenuIsOpen(true)}
-        onMenuClose={() => setMenuIsOpen(false)}
-      />
-    </div>
+      <div className="flex flex-col justify-center text-center items-center h-[100dvh] relative">
+        <h1 className="font-mono text-6xl text-white mb-4">Game Finder</h1>
+        <div className={`flex flex-col h-[40dvh] ${menuIsOpen ? 'mb-52 md:mb-24 2xl:mb-48 transition-all duration-300 ease-in-out' : 'transition-all duration-300 ease-in-out'}`}>
+          <AsyncSelect
+              cacheOptions
+              defaultOptions
+              loadOptions={loadOptions}
+              onChange={handleChange}
+              components={{ Option }}
+              styles={searchBarStyles}
+              menuIsOpen={menuIsOpen}
+              onMenuOpen={() => setMenuIsOpen(true)}
+              onMenuClose={() => setMenuIsOpen(false)}
+          />
+        </div>
+        <div className="absolute bottom-8">
+          <Link
+              to="recommended"
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+              className="md:inline-block" // Oculta en dispositivos móviles
+          >
+            <HiArrowDown size={35} className="text-white animate-bounce"/>
+          </Link>
+        </div>
+      </div>
   );
 };
 

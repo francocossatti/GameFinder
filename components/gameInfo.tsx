@@ -8,7 +8,7 @@ function obtenerTextoRecortado(texto: string): string {
   if (texto.length > maxLength) {
     const puntoAntesLimite = texto.lastIndexOf('.', maxLength);
     if (puntoAntesLimite !== -1) {
-      return texto.substring(0, puntoAntesLimite + 1); // +1 para incluir el punto en el resultado
+      return texto.substring(0, puntoAntesLimite + 1);
     } else {
       return texto.substring(0, maxLength);
     }
@@ -92,7 +92,7 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
   const CustomNextArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
       onClick={onClick}
-      className="custom-next-arrow" // Agrega una clase CSS para estilizar o posicionar
+      className="custom-next-arrow"
     >
       <FaArrowRight className='size-5 2xl:size-10'/>
     </div>
@@ -101,7 +101,7 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => (
     <div
       onClick={onClick}
-      className="custom-prev-arrow" // Agrega una clase CSS para estilizar o posicionar
+      className="custom-prev-arrow"
     >
       <FaArrowLeft className='size-5 2xl:size-10'/>
     </div>
@@ -150,9 +150,9 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
         <div className="relative xl:ml-[48lvh] xl:text-left xl:absolute flex flex-wrap xl:flex-nowrap justify-center items-center text-white">
           <h1 className="mt-2 text-md 2xl:text-4xl xl:text-2xl">{textoModificado}</h1>
         </div>
-        <div className="relative xl:absolute xl:ml-[48lvh] 2xl:text-3xl xl:text-sm mt-[2lvh] xl:mt-[22lvh] xl:text-left w-full xl:w-auto flex flex-wrap xl:flex-nowrap justify-center items-center">
+        <div className="relative xl:absolute xl:ml-[48dvh] 2xl:text-3xl xl:text-sm xl:mt-[22dvh] mt-[10dvh] xl:text-left w-full xl:w-auto flex flex-wrap xl:flex-nowrap justify-center items-center">
   {gameInfo[index] && gameInfo[index].genres && gameInfo[index].genres.map((genre, index) => (
-    <span key={index} className="bg-white mt-1 inline-flex justify-center items-center xl:p-[1.5lvh] p-2 mx-1 rounded-full">{genre.name}</span>
+    <span key={index} className="bg-white inline-flex justify-center items-center xl:p-[1.5lvh] p-2 mx-1 rounded-full">{genre.name}</span>
   ))}
 </div>
       </div>
