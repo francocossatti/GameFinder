@@ -28,17 +28,17 @@ const searchBarStyles = {
     borderRadius: 12,
     border: '1px solid #ccc',
     minHeight: '3rem',
-    width: '40rem', // Set the default width
+    width: '50dvw', // Set the default width
     '@media (max-width: 767px)': {
       // Apply new width for screens smaller than md (640px)
-      width: '20rem',
+      width: '70dvw',
     },
     '@media (min-width: 768px) and (max-width: 1023px)': {
       // Apply new width for screens between md (768px) and lg (1024px)
-      width: '30rem',
+      width: '80dvw',
     },
     '@media (min-width: 1900px)': {
-      width: "70rem",
+      width: "50dvw",
     }
   }),
   option: (provided: any, state: any) => ({

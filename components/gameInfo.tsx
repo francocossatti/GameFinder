@@ -125,14 +125,14 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
   const textoModificado = obtenerTextoRecortado(dataSummary);
 
   return (
-    <div className='w-full relative'>
+    <div className='h-[100dvh] w-full relative'>
       <div className="w-full h-full text-center relative"> 
         <div className="firstcarousel-container w-full relative">
           <Slider {...settings}>
           {gameInfo[index] && gameInfo[index].screenshots && gameInfo[index].screenshots.map((screenshot, index) => (
               <div key={index} className="w-full relative">
                 <img
-                  className="rounded-md w-full h-[32lvh] xl:h-[60lvh] mx-auto delay-150" 
+                  className="rounded-md w-full h-[30dvh] xl:h-[60dvh] mx-auto delay-150" 
                   src={getResizedImageUrl(screenshot.url, 'screenshot_huge')}
                   alt={gameInfo[index]?.name}
                 />
@@ -142,15 +142,15 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
         </div>
         <div className='xl:w-auto xl:max-w-md flex xl:justify-normal justify-center'>
         <img
-          className="absolute top-0 w-[20lvh] mt-[22lvh] xl:w-[40lvh] xl:mt-[45lvh] xl:ml-[4lvh] drop-shadow-xl shadow-xl rounded-md"
+          className="absolute top-0 w-[20dvh] mt-[22dvh] xl:w-[40dvh] xl:mt-[45dvh] xl:ml-[4dvh] drop-shadow-xl shadow-xl rounded-md"
           src={gameInfo[index]?.cover?.url ? getResizedImageUrl(gameInfo[index].cover.url, 'cover_big') : 'URL_POR_DEFECTO'}
         />
         </div>
-        <h1 className="relative text-white xl:text-left xl:ml-[48lvh] 2xl:text-[6rem] mt-[16lvh] xl:mt-0 text-4xl xl:text-6xl">{gameInfo[index]?.name}</h1>
+        <h1 className="relative text-white xl:text-left xl:ml-[48lvh] 2xl:text-[6rem] text-4xl xl:text-6xl">{gameInfo[index]?.name}</h1>
         <div className="relative xl:ml-[48lvh] xl:text-left xl:absolute flex flex-wrap xl:flex-nowrap justify-center items-center text-white">
           <h1 className="mt-2 text-md 2xl:text-4xl xl:text-2xl">{textoModificado}</h1>
         </div>
-        <div className="relative xl:absolute xl:ml-[48dvh] 2xl:text-3xl xl:text-sm xl:mt-[22dvh] mt-[10dvh] xl:text-left w-full xl:w-auto flex flex-wrap xl:flex-nowrap justify-center items-center">
+        <div className="relative xl:absolute xl:ml-[48dvh] 2xl:text-3xl xl:text-sm xl:mt-[30dvh] mt-[2dvh] xl:text-left w-full xl:w-auto flex flex-wrap xl:flex-nowrap justify-center items-center">
   {gameInfo[index] && gameInfo[index].genres && gameInfo[index].genres.map((genre, index) => (
     <span key={index} className="bg-white inline-flex justify-center items-center xl:p-[1.5lvh] p-2 mx-1 rounded-full">{genre.name}</span>
   ))}
