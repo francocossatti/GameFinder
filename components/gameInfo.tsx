@@ -127,16 +127,17 @@ export default async function gameInfo({ gameInfo, input }: { gameInfo: Repo[], 
   return (
     <div className='h-[100dvh] w-full relative'>
       <div className="w-full h-full text-center relative"> 
-        <div className="firstcarousel-container w-full relative">
+        <div className="firstcarousel-container relative">
           <Slider {...settings}>
           {gameInfo[index] && gameInfo[index].screenshots && gameInfo[index].screenshots.map((screenshot, index) => (
-              <div key={index} className="w-full relative">
-                <img
-                  className="rounded-md w-full h-[30dvh] xl:h-[60dvh] mx-auto delay-150" 
+              <div key={index} className="w-full relative bg-black">
+              <img
+                  id='screenshot'
+                  className="w-full md:w-[70dvw] xl:w-[75dvw] h-[30dvh] xl:h-[60dvh] mx-auto delay-150" 
                   src={getResizedImageUrl(screenshot.url, 'screenshot_huge')}
                   alt={gameInfo[index]?.name}
-                />
-              </div>
+              />
+          </div>
             ))}
           </Slider>
         </div>
