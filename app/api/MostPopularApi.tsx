@@ -21,7 +21,7 @@ export default async function getPopularGames() {
       'Authorization': `Bearer ${process.env.API_BEARER_TOKEN}`,
       'Content-Type': 'text/plain',
     },
-    body: 'fields name,cover.url; sort follows desc; limit 7;',
+    body: 'fields name,cover.url; where themes.name != "Erotic"; sort follows desc; limit 7;',
   };
 
   const res = await fetch(apiUrl, options1);
